@@ -7,9 +7,6 @@ Original file is located at
     https://colab.research.google.com/drive/1zV-o_pUaQXaly56iB69xZkcSB2EK8qzG
 """
 
-# Gerenciar
-import os
-
 #Lista que vai armazenar as informações
 funcionarios = []
 
@@ -117,10 +114,10 @@ def cadastrar():
 
 #Função para
 def listar():
-    if not funcionarios:
+    if not funcionarios: 
         print("\n Nenhum funcionário(a) cadastrado.\n")
         return
-    for i, f in enumerate(funcionarios, start=1):
+    for i, funcionarios in enumerate(funcionarios, start=1): #dentro da lista, contar cada um a partir do 1
         print(f"\n--- Funcionário(a) {i} ---")
         print(f"Nome: {f['nome']}")
         print(f"Cargo: {f['cargo']}")
@@ -130,15 +127,15 @@ def listar():
 
 def alterar():
     listar()
-    indice = int(input("\nDigite o número do funcionário(a) que deseja alterar: ")) - 1
-    if 0 <= indice < len(funcionarios):
+    indice = int(input("\nDigite o número do funcionário(a) que deseja alterar: ")) - 1  #Para começar a contar realmente do 1
+    if 0 <= indice < len(funcionarios): # O número escolhido não pode ser menor que o número de funcionários
         nome = input("Novo nome: ").strip()
         valor_hora = float(input("Novo valor da hora: "))
         quantidade_horas = float(input("Nova quantidade de horas: "))
 
         salario_bruto, cargo, inss, ir, sindicato, salario_liquido = calcular_salario(valor_hora, quantidade_horas)
 
-        funcionarios[indice].update({
+        funcionarios[indice].update({ #atualizar as novas informações
             "nome": nome,
             "valor_hora": valor_hora,
             "quantidade_horas": quantidade_horas,
@@ -181,6 +178,7 @@ def menu():
         elif opcao == "2":
             listar()
         elif opcao == "3":
+            
             alterar()
         elif opcao == "4":
             excluir()
