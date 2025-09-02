@@ -114,10 +114,10 @@ def cadastrar():
 
 #Função para
 def listar():
-    if not funcionarios: 
+    if not funcionarios:
         print("\n Nenhum funcionário(a) cadastrado.\n")
         return
-    for i, funcionarios in enumerate(funcionarios, start=1): #dentro da lista, contar cada um a partir do 1
+    for i, f in enumerate(funcionarios, start=1): #dentro da lista, contar cada um a partir do 1
         print(f"\n--- Funcionário(a) {i} ---")
         print(f"Nome: {f['nome']}")
         print(f"Cargo: {f['cargo']}")
@@ -178,7 +178,7 @@ def menu():
         elif opcao == "2":
             listar()
         elif opcao == "3":
-            
+
             alterar()
         elif opcao == "4":
             excluir()
